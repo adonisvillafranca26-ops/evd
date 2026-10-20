@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 116 120" width="116" height="120" role="img" aria-label="StudyHive logo mark">
+  <polygon points="50,26 84.6,46 84.6,86 50,106 15.4,86 15.4,46" fill="#1F7A6B"/>
+  <path d="M50 60 C43 55 34 55 28 58 V80 C34 77 43 77 50 82 Z" fill="#FFFFFF"/>
+  <path d="M50 60 C57 55 66 55 72 58 V80 C66 77 57 77 50 82 Z" fill="#FFFFFF"/>
+  <path d="M33 64 C37 63 41 63 45 65 M33 70 C37 69 41 69 45 71 M55 65 C59 63 63 63 67 64 M55 71 C59 69 63 69 67 70" stroke="#1F7A6B" stroke-width="2" stroke-linecap="round" fill="none"/>
+  <polygon points="88,14 101.9,22 101.9,38 88,46 74.1,38 74.1,22" fill="#DBA544"/>
+  <polygon points="100,57 111.3,63.5 111.3,76.5 100,83 88.7,76.5 88.7,63.5" fill="#1F3A5F"/>
+</svg>

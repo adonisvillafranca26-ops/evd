@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StudyHive | Student Study &amp; Productivity Service</title>
+  <meta name="description" content="Affordable printing, reviewers and study materials for students, all in one place.">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- PyScript 2026.7.3 -->
+  <link rel="stylesheet" href="https://pyscript.net/releases/2026.7.3/core.css">
+  <script type="module" src="https://pyscript.net/releases/2026.7.3/core.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="StudyHive home">
+      <img src="logo.svg" alt="">
+      <div>Study<span>Hive</span></div>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#print-estimator">Print estimator</a>
+      <a href="#planner">Study planner</a>
+      <a href="#numbers">Business numbers</a>
+      <a href="#survey">Survey</a>
+      <a href="#visit">Visit us</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <img class="hero-logo" src="logo-full.png" alt="StudyHive: Student Study &amp; Productivity Service">
+        <h1>Study smarter, stay organized, and get school tasks done in one place.</h1>
+        <p class="lead">
+          Affordable printing, reviewers and study materials for senior high school and college
+          students, so you spend less time hunting for resources and more time studying.
+        </p>
+        <div class="actions">
+          <a class="btn" href="#print-estimator">Estimate your printing</a>
+          <a class="btn ghost" href="#planner">Plan your week</a>
+        </div>
+      </div>
+      <div class="hero-video">
+        <video class="ad" controls playsinline preload="metadata" poster="poster.jpg"
+               aria-label="StudyHive video ad, 37 seconds">
+          <source src="studyhive_ad.mp4" type="video/mp4">
+          Your browser can't play this video. <a href="studyhive_ad.mp4">Download it instead.</a>
+        </video>
+        <p class="note">Watch our 37-second intro</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="alt">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Everything a student needs, in one stop</h2>
+        <p>We start with the two services students asked for most, then grow from there.</p>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <span class="tag flagship">Flagship</span>
+          <h3>Printing &amp; photocopying</h3>
+          <p>Fast, affordable prints and copies for assignments, projects and requirements.</p>
+        </article>
+        <article class="card">
+          <span class="tag flagship">Flagship</span>
+          <h3>Reviewers &amp; study materials</h3>
+          <p>Ready-to-use reviewers for exams, with customized materials on request.</p>
+        </article>
+        <article class="card">
+          <span class="tag">Add-on</span>
+          <h3>Digital study resources</h3>
+          <p>Downloadable study files you can use on your phone or laptop.</p>
+        </article>
+        <article class="card">
+          <span class="tag">Add-on</span>
+          <h3>School supplies</h3>
+          <p>Paper, pens and other everyday basics, right where you print.</p>
+        </article>
+        <article class="card">
+          <span class="tag">Add-on</span>
+          <h3>Planners &amp; productivity tools</h3>
+          <p>Planners and study schedules that help you keep up with deadlines.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Print cost estimator (PyScript) -->
+  <section id="print-estimator">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Print cost estimator</h2>
+        <p>Change any option and the price updates right away. Rates shown are examples; the shop's final rates may differ.</p>
+      </div>
+      <div class="tool">
+        <form id="estimator" class="panel" onsubmit="return false" autocomplete="off">
+          <h3>Your print job</h3>
+          <div class="row">
+            <div class="field">
+              <label for="est-pages">Pages</label>
+              <input id="est-pages" type="number" min="0" step="1" value="20" inputmode="numeric">
+            </div>
+            <div class="field">
+              <label for="est-copies">Copies</label>
+              <input id="est-copies" type="number" min="1" step="1" value="1" inputmode="numeric">
+            </div>
+          </div>
+          <div class="row">
+            <div class="field">
+              <label for="est-color">Color</label>
+              <select id="est-color">
+                <option value="bw">Black &amp; white</option>
+                <option value="color">Full color</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="est-size">Paper size</label>
+              <select id="est-size">
+                <option value="short">Short (8.5 x 11 in)</option>
+                <option value="a4">A4</option>
+                <option value="legal">Legal (8.5 x 13 in)</option>
+              </select>
+            </div>
+          </div>
+          <label class="check"><input id="est-duplex" type="checkbox"> Double-sided printing</label>
+        </form>
+        <div class="panel result" aria-live="polite">
+          <h3>Estimated price</h3>
+          <div id="est-result"><p class="loading">Loading Python, one moment…</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Study planner (PyScript) -->
+  <section id="planner" class="alt">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Study planner</h2>
+        <p>List your assignments and exams. The planner sorts them by deadline and shows how many hours a day to set aside. Your tasks are saved only in this browser.</p>
+      </div>
+      <div class="tool">
+        <form id="task-form" class="panel" autocomplete="off">
+          <h3>Add a task</h3>
+          <div class="field">
+            <label for="task-name">Task</label>
+            <input id="task-name" type="text" placeholder="e.g. Business Analytics project" maxlength="80">
+          </div>
+          <div class="field">
+            <label for="task-subject">Subject (optional)</label>
+            <input id="task-subject" type="text" placeholder="e.g. Free Elec 1" maxlength="40">
+          </div>
+          <div class="row">
+            <div class="field">
+              <label for="task-due">Due date</label>
+              <input id="task-due" type="date">
+            </div>
+            <div class="field">
+              <label for="task-hours">Hours of work</label>
+              <input id="task-hours" type="number" min="0.5" step="0.5" value="2" inputmode="decimal">
+            </div>
+          </div>
+          <p id="task-error" class="error" role="alert"></p>
+          <button class="btn" type="submit">Add to planner</button>
+        </form>
+        <div class="panel">
+          <h3>Your deadlines</h3>
+          <ul id="task-list" class="task-list" aria-live="polite">
+            <li class="loading">Loading Python, one moment…</li>
+          </ul>
+          <p id="task-summary" class="hint"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What-if calculator (PyScript) -->
+  <section id="numbers">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>The business numbers</h2>
+        <p>
+          Our feasibility study assumed ₱40,000 in startup capital, costs of goods at 55% of sales,
+          and ₱3,500 in fixed monthly costs. Move the sliders to see how sales and break-even change.
+        </p>
+      </div>
+      <div class="tool">
+        <form id="whatif" class="panel" onsubmit="return false">
+          <h3>Adjust the assumptions</h3>
+          <div class="field">
+            <div class="range-line"><label for="wi-reach">Students reached each month</label><output id="wi-reach-out" for="wi-reach"></output></div>
+            <input id="wi-reach" type="range" min="50" max="500" step="10" value="200">
+          </div>
+          <div class="field">
+            <div class="range-line"><label for="wi-conv">Share who become customers</label><output id="wi-conv-out" for="wi-conv"></output></div>
+            <input id="wi-conv" type="range" min="10" max="100" step="5" value="70">
+          </div>
+          <div class="field">
+            <div class="range-line"><label for="wi-txn">Transactions per customer each month</label><output id="wi-txn-out" for="wi-txn"></output></div>
+            <input id="wi-txn" type="range" min="1" max="10" step="1" value="4">
+          </div>
+          <div class="field">
+            <div class="range-line"><label for="wi-value">Average spend per transaction</label><output id="wi-value-out" for="wi-value"></output></div>
+            <input id="wi-value" type="range" min="20" max="80" step="1" value="41">
+          </div>
+        </form>
+        <div class="panel" aria-live="polite">
+          <h3>What that means</h3>
+          <div id="wi-result" class="stats"><p class="loading">Loading Python, one moment…</p></div>
+          <p class="note" style="margin-top: 14px">
+            The study rounds sales to ₱23,000, which gives a profit of ₱6,850 and a break-even of about 6 months.
+            These sliders use exact figures, so results differ by a few pesos.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Survey (PyScript charts) -->
+  <section id="survey" class="alt">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>What students told us</h2>
+        <p>We surveyed 30 Cebu Eastern College students in September 2026. The sample is small and mostly 3rd-year BSIT and BSHM students, so we treat these results as an early signal, not the final word.</p>
+      </div>
+      <div class="kpis">
+        <div class="kpi"><b>70%</b>said yes to using StudyHive, 30% said maybe, and nobody said no</div>
+        <div class="kpi"><b>₱125</b>average monthly spend on study materials</div>
+        <div class="kpi"><b>₱41</b>average amount students would spend per transaction</div>
+        <div class="kpi"><b>≈ 6 mo.</b>estimated break-even period</div>
+      </div>
+      <div class="charts">
+        <div class="panel">
+          <h3>Services of most interest</h3>
+          <div id="chart-interest"><p class="loading">Loading Python, one moment…</p></div>
+        </div>
+        <div class="panel">
+          <h3>Most wanted features</h3>
+          <div id="chart-features"><p class="loading">Loading Python, one moment…</p></div>
+        </div>
+        <div class="panel">
+          <h3>Willing to spend per transaction</h3>
+          <div id="chart-spend"><p class="loading">Loading Python, one moment…</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Visit -->
+  <section id="visit">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Visit StudyHive</h2>
+        <p>We are starting with a small pilot at Cebu Eastern College. Replace the placeholders below with your real details.</p>
+      </div>
+      <div class="grid">
+        <div class="card"><h3>Where</h3><p>SOON</p></div>
+        <div class="card"><h3>Hours</h3><p>SOON</p></div>
+        <div class="card"><h3>Message us</h3><p>SOON</p></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <a class="brand" href="#top"><img src="logo.svg" alt=""><div>Study<span>Hive</span></div></a>
+      <p style="margin-top: 10px">Student Study &amp; Productivity Service</p>
+    </div>
+    <div>
+      <p>A Business Analytics semifinals project, Cebu Eastern College, College of Information Technology.</p>
+      <p>Prices and projections on this site are planning estimates.</p>
+    </div>
+  </div>
+</footer>
+
+<noscript>This site needs JavaScript to run its Python-powered tools.</noscript>
+
+<!-- All interactive features live in main.py -->
+<script type="py" src="./main.py" config="./pyscript.toml"></script>
+
+</body>
+</html>
